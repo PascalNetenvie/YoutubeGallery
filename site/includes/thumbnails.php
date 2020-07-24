@@ -722,8 +722,8 @@ class YoutubeGalleryLayoutThumbnails
 
 				if($thumbnail_item!='')
 				{
-					$catalogresult.='<div id="youtubegallery_thumbnail_'.$videolist_row->id.'_'.$count.'" style="display:contents;">'
-					.'<div id="youtubegallery_thumbnail_box_'.$videolist_row->id.'_'.$listitem['id'].'" class="ygThumb-inactive" style="display:contents;">'
+										$catalogresult.='<div id="youtubegallery_thumbnail_'.$videolist_row->id.'_'.$count.'" class="ytg-item">'
+					.'<div id="youtubegallery_thumbnail_box_'.$videolist_row->id.'_'.$listitem['id'].'" class="ygThumb ygThumb-inactive">'
 					.$thumbnail_item.'</div></div>';
 					$count++;
 				}
@@ -741,7 +741,7 @@ class YoutubeGalleryLayoutThumbnails
 			}
 		}
 
-		return '<div id="youtubegallery_thumbnails_'.$videolist_row->id.'">'.$catalogresult.'</div>';
+		return '<div id="youtubegallery_thumbnails_'.$videolist_row->id.'" class="ytg-list">'.$catalogresult.'</div>';
 	}
 	
 	
@@ -782,7 +782,7 @@ class YoutubeGalleryLayoutThumbnails
 			if($theme_row->showtitle)
 			{
 				if($thumbtitle!='')
-					$thumbnail_layout.='<br/>'.($theme_row->thumbnailstyle=='' ? '<span style="font-size: 8pt;" >[title]</span>' : '<div style="'.$theme_row->thumbnailstyle.'">[title]</div>');
+					$thumbnail_layout .= ($theme_row->thumbnailstyle=='' ? '<span class="ytg-title">[title]</span>' : '<div class="ytg-title">[title]</div>');
 			}
 			$result=YoutubeGalleryLayoutThumbnails::renderThumbnailLayout($thumbnail_layout,		$listitem,$aHrefLink,$aLink, $videoid,$theme_row,$item_index,$gallery_list,$videolist_row);
 		}
